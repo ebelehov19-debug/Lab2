@@ -1,20 +1,11 @@
-from src.power import power_function
-from src.constants import SAMPLE_CONSTANT
+from os import*
+from shutil import*
+from datetime import*
+from logging import*
 
 
 def main() -> None:
-    """
-    Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение
-    :return: Данная функция ничего не возвращает
-    """
-
-    target, degree = map(int, input("Введите два числа разделенные пробелом: ").split(" "))
-
-    result = power_function(target=target, power=degree)
-
-    print(result)
-
-    print(SAMPLE_CONSTANT)
+   print(12+89)
 
 if __name__ == "__main__":
     main()
