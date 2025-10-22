@@ -6,8 +6,6 @@ def cd(cmd=str)->None:
     puti='C::'
     if cmd=='..':
         puti=dirname(getcwd()) 
-    elif cmd=='~':
-        puti=expanduser(cmd)
     else:
         puti=to_correct(cmd)
     print(puti)
@@ -23,8 +21,7 @@ def cd(cmd=str)->None:
         return
     chdir(puti)
     logcom(f'cd {puti}',1,'')
-s=input()
-cd(s)
+
 
         
 
