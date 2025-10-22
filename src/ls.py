@@ -25,11 +25,7 @@ def ls(cmn=str,fl=str)->None:
         osh= f'Данный путь не существует {puti}'
         print(f'ERROR: {osh}')
         logcom(f'ls {puti}',0,f'ERROR: {osh}')
-a=input().split()
-if len(a)==1:
-    ls(a[0],'rp')
-else:
-    ls(a[0],a[1])
+
 
 
 
