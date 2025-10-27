@@ -29,7 +29,7 @@ def rm(ist,fl):
             shutil.rmtree(otk)
         if os.path.isfile(otk):
             os.remove(otk)
-            
+        logcom('rm',1,'')    
 s=input().split()
 if len(s)==2:
     rm(s[0],s[-1])    

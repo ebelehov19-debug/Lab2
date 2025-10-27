@@ -4,8 +4,4 @@ from datetime import*
 from logging import*
 
 
-def main() -> None:
-   print(12+89)
-
-if __name__ == "__main__":
-    main()
+def main() -> None: print("pop")
