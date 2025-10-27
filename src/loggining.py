@@ -5,6 +5,6 @@ def logcom(comnd=str,fl=bool,err=str)->None:
     if(fl): 
         info(comnd) 
     else:
-        info(f'ERROR:{err}')
+        error(f'{err}')
 
 

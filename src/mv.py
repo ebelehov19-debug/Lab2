@@ -9,17 +9,18 @@ def mv(ist,kuda):
         if not(os.path.exists(otk)):
                 erro=f'Данного пути не существует!!'
                 print(f"ERROR:{erro}")
-                logcom('mv',0,erro)
+                logcom(f'mv {otk} {kuda}',0,erro)
                 return
-        #изучить pathlib для проверки безопасности 
         if os.path.isdir(fom):
             shutil.move(otk,fom)
         else:
-            rename(otk,kuda)
+            pa=os.path.dirname(otk)
+            new=os.path.join(pa,kuda)
+            rename(otk,new)
         print(f"mv {otk} {kuda}")
-        logcom("mv",1,'')
+        logcom(f"mv {otk} {kuda}",1,'')
     except Exception as e:
-         print(f"eror {e}")
+         print(f"Error:{e}")
          logcom(f'rm',0,str(e))
 s,s1=input().split()
 mv(s,s1)   

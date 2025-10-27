@@ -24,10 +24,10 @@ def ls(cmn=str,fl=str)->None:
         else:
             osh= f'Данный путь не существует {puti}'
             print(f'ERROR: {osh}')
-            logcom(f'ls {puti}',0,f'ERROR: {osh}')
+            logcom(f'ls {puti}',0,f'{osh}')
     except Exception as errors:
-        print(f"Error {errors}")
-        logcom(f'ls {errors}',0,errors)
+        print(f"{errors}")
+        logcom(f'ls',0,errors)
 
 
 
