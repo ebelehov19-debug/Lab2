@@ -2,7 +2,7 @@ from src.pathcorr import*
 import os
 from src.loggining import*
 import shutil
-def rm(ist,fl):
+def rm(ist,fl=''):
     try:
         if ist in ['/', '..', '.'] or ist == os.path.dirname(ist):
                 error = "Невщзмажно удалить директорию"
@@ -20,7 +20,7 @@ def rm(ist,fl):
             print(f"ERROR:{erro}")
             logcom('rm',0,erro)
             return
-        t=input("Действительно хотите удалить? (y/n)")
+        t=input("Действительно хотите удалить? (y/n)\n")
         if t.lower()!='y':
             print("Удаление отменено")
             logcom("rm",0,'Удаление отменено')
@@ -29,11 +29,10 @@ def rm(ist,fl):
                 shutil.rmtree(otk)
             if os.path.isfile(otk):
                 os.remove(otk)
-            logcom(f'rm{otk}',1,'')    
+            print(f'rm {otk}')
+            logcom(f'rm {otk}',1,'')    
     except Exception as e:
         print(str(e))
         logcom(f'rm',0,str(e))
-s=input().split()
-if len(s)==2:
-    rm(s[0],s[-1])    
-    
+  
+

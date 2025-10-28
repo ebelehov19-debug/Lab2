@@ -13,8 +13,7 @@ def cd(cmd:str)->None:
             erro=f'Данного пути не существует'
             print(f"ERROR:{erro}")
             logcom(f'cd {puti}',0,erro)
-            return
-            
+            return          
         if not(isdir(puti)):
             erro=f'Не Является директорией'
             print(f"ERROR:{erro}")

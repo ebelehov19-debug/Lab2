@@ -1,11 +1,12 @@
 from src.pathcorr import*
-from os import*
+import os
 from src.loggining import*
 import shutil
 def mv(ist,kuda):
-    try:
+    if 1:
         otk=to_correct(ist)
         fom=to_correct(kuda)
+        print(otk,fom)
         if not(os.path.exists(otk)):
                 erro=f'Данного пути не существует!!'
                 print(f"ERROR:{erro}")
@@ -16,11 +17,9 @@ def mv(ist,kuda):
         else:
             pa=os.path.dirname(otk)
             new=os.path.join(pa,kuda)
-            rename(otk,new)
+            os.rename(otk,new)
         print(f"mv {otk} {kuda}")
         logcom(f"mv {otk} {kuda}",1,'')
-    except Exception as e:
-         print(f"Error:{e}")
-         logcom(f'rm',0,str(e))
+
 s,s1=input().split()
-mv(s,s1)   
+mv(s,s1)
