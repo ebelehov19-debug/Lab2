@@ -2,7 +2,7 @@ from os import*
 from datetime import*
 from src.loggining import*
 from src.pathcorr import*
-def ls(cmn=str,fl=str)->None:
+def ls(cmn:str,fl:str)->None:
     try:
         puti="C::::"
         if cmn: puti= to_correct(cmn)

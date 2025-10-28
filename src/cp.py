@@ -30,8 +30,5 @@ def cpi(ist:str, kuda:str,fl='')->None:
     except Exception as e:
         print(str(e))
         logcom(f'cp',0,str(e))
-s=input()
-a=s.split()
-if len(a)==3:
-    cpi(a[0],a[1],a[2])
+
 

@@ -2,7 +2,7 @@ from os import*
 from os.path import*
 from src.loggining import*
 from src.pathcorr import*
-def cd(cmd=str)->None:
+def cd(cmd:str)->None:
     try:
         puti='C::'
         if cmd=='..':
@@ -21,6 +21,7 @@ def cd(cmd=str)->None:
             logcom(f'cd {puti}',0,erro)
             return
         chdir(puti)
+        print(f'cd {puti}')
         logcom(f'cd {puti}',1,'')
     except Exception as errors:
         print(f"Error {errors}")
