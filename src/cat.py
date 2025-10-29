@@ -2,7 +2,7 @@ from src.pathcorr import*
 from src.loggining import*
 def catti(cmd)->None:
     print(cmd)
-    if True:
+    try:
         puti=to_correct(cmd)
         if not(os.path.exists(puti)):
             erro=f'Данного пути не существует'
@@ -20,9 +20,9 @@ def catti(cmd)->None:
                 for line in file:
                     print(line)
         logcom(f'cat {puti}',1,'')
-    # except Exception as e:
-    #     print(f"Error {e}")
-    #     logcom(f'cat',0,e)
+    except Exception as e:
+        print(f"Error {e}")
+        logcom(f'cat',0,e)
 
 
 
