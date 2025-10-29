@@ -1,6 +1,7 @@
 from src.pathcorr import*
 from src.loggining import*
-def catti(cmd)->None:
+import os
+def catti(cmd:str)->None:
     print(cmd)
     try:
         puti=to_correct(cmd)

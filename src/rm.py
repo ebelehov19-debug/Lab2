@@ -34,5 +34,5 @@ def rm(ist,fl=''):
     except Exception as e:
         print(str(e))
         logcom(f'rm',0,str(e))
-  
+
 

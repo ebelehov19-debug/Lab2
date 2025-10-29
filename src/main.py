@@ -50,7 +50,7 @@ def main() -> None:
                               try:
                                     if len(a)==3:
                                           cpi(a[1],a[2],'')   
-                                    if len(a)==4:
+                                    elif len(a)==4:
                                           cpi(a[1],a[2],a[3])
                                     else:
                                           print(f"cp некорректный ввод\n")
@@ -83,11 +83,10 @@ def main() -> None:
                         case 'exit': 
                               print("Спасибо за использование!")
                               break
-                        case _:print("popa")
-                        
-
-
-                  
+                        case _ :
+                              print("Неизвестная команда") 
+                              logcom("Неисвестная ошибка",0,'')
+                                    
 main()   
                    
        
