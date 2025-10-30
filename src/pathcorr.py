@@ -1,5 +1,3 @@
-import os.path
-import os 
 import pathlib
 def to_correct(cmd: str) -> str:
     path = cmd.strip()
@@ -11,5 +9,3 @@ def to_correct(cmd: str) -> str:
     elif path.startswith(('.', '..')) or not path.startswith('/'):
         pyti = pathlib.Path.cwd() / path 
     return str(pyti.resolve())
-s=input()
-print(to_correct(s))

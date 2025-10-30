@@ -2,7 +2,7 @@ from src.pathcorr import*
 import os
 from src.loggining import*
 import shutil
-def mvi(ist,kuda):
+def mvi(ist:str,kuda:str)->None:
     if 1:
         otk=to_correct(ist)
         fom=to_correct(kuda)
@@ -18,5 +18,4 @@ def mvi(ist,kuda):
             pa=os.path.dirname(otk)
             new=os.path.join(pa,kuda)
             os.rename(otk,new)
-        print(f"mv {otk} {kuda}")
         logcom(f"mv {otk} {kuda}",1,'')

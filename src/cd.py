@@ -20,7 +20,6 @@ def cd(cmd:str)->None:
             logcom(f'cd {puti}',0,erro)
             return
         chdir(puti)
-        print(f'cd {puti}')
         logcom(f'cd {puti}',1,'')
     except Exception as errors:
         print(f"Error {errors}")

@@ -8,6 +8,7 @@ from src.cat import*
 from src.cp import*
 from src.rm import*
 from src.mv import*
+from src.grep import*
 def main() -> None: 
       while 1:
             s=input()
@@ -19,7 +20,7 @@ def main() -> None:
                                     if len(a)==2:
                                           ls(a[1],'')
                                     elif len(a)==3:
-                                          ls(a[1],a[2])
+                                          ls(a[2],a[1])
                                     else:
                                           print(f"ls некорректный ввод\n")
                                           logcom(f"ls",0,"ls некорректный ввод")
@@ -51,7 +52,7 @@ def main() -> None:
                                     if len(a)==3:
                                           cpi(a[1],a[2],'')   
                                     elif len(a)==4:
-                                          cpi(a[1],a[2],a[3])
+                                          cpi(a[2],a[3],a[1])
                                     else:
                                           print(f"cp некорректный ввод\n")
                                           logcom(f"cp",0,"cp некорректный ввод")
@@ -63,7 +64,7 @@ def main() -> None:
                                     if len(a)==2:
                                           rm(a[1],'')
                                     elif len(a)==3:
-                                          rm(a[1],a[2])
+                                          rm(a[2],a[1])
                                     else:
                                           print(f"rm некорректный ввод\n")
                                           logcom(f"rm",0,"rm некорректный ввод")
@@ -83,6 +84,15 @@ def main() -> None:
                         case 'exit': 
                               print("Спасибо за использование!")
                               break
+                        case 'grep':
+                              if(len(a)==3):
+                                    grep(a[1],a[2])
+                              elif(len(a)==4 and '-r' in a):
+                                    grep(a[1],a[2],a[3])
+                              elif(len(a)==4 and '-i' in a):
+                                    grep(a[1],a[2],'',a[3])
+                              elif(len(a)==5 and '-r' in a and '-i' in a):
+                                    grep(a[1],a[2],a[3],a[4])
                         case _ :
                               print("Неизвестная команда") 
                               logcom("Неисвестная ошибка",0,'')

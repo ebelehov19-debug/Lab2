@@ -1,4 +1,5 @@
 from os import*
+import os.path
 from datetime import*
 from src.loggining import*
 from src.pathcorr import*
@@ -20,7 +21,7 @@ def ls(cmn:str,fl:str)->None:
             else:
                 for i in filanddir:
                     print(i)
-            logcom(f'ls {puti}',True,'')
+            logcom(f'ls {fl} {puti}',True,'')
         else:
             osh= f'Данный путь не существует {puti}'
             print(f'ERROR: {osh}')

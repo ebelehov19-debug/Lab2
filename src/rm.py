@@ -18,19 +18,18 @@ def rm(ist,fl=''):
         if os.path.isdir(otk) and fl!='-r':
             erro=f'Не удалось удалить!!!'
             print(f"ERROR:{erro}")
-            logcom('rm',0,erro)
+            logcom(f'rm{fl}{otk}',0,erro)
             return
         t=input("Действительно хотите удалить? (y/n)\n")
         if t.lower()!='y':
             print("Удаление отменено")
-            logcom("rm",0,'Удаление отменено')
+            logcom(f"rm{fl}{otk}",0,'Удаление отменено')
         else:
             if os.path.isdir(otk):
                 shutil.rmtree(otk)
             if os.path.isfile(otk):
                 os.remove(otk)
-            print(f'rm {otk}')
-            logcom(f'rm {otk}',1,'')    
+            logcom(f'rm{fl}{otk}',1,'')    
     except Exception as e:
         print(str(e))
         logcom(f'rm',0,str(e))
