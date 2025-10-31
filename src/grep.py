@@ -7,7 +7,6 @@ def grep(pattern:str,path:str,fl='',fl2=''):
             flag = re.IGNORECASE 
         else: flag=0
         pater = re.compile(pattern,flag)
-        print(path)
         file_serch=[]
         if os.path.isfile(path):
             file_serch.append(path)
@@ -19,12 +18,10 @@ def grep(pattern:str,path:str,fl='',fl2=''):
                         file_serch.append(full_path)
             else:
                 print("Используйте -r для поиска в директории")
-                logcom(f"grep {path}",0,"Используйте -r для поиска в директории")
         fis=[i for i in file_serch if os.path.isfile(i)]
         cnt=0
         if len(fis)==0:
             print("Нет файлов для поиска")
-            logcom("grep",0,"Нет файлов для поиска")
         elif len(fis)!=0:
             for pat in fis:
                 with open(pat,'r') as filp:
@@ -38,7 +35,6 @@ def grep(pattern:str,path:str,fl='',fl2=''):
             print("Нет совпадений")
     except Exception as err:
         print(f"ERROR:{str(err)}")
-        logcom(f"grep {fl} {fl2} {str(err)}")
 
 
     

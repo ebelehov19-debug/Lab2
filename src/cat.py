@@ -2,20 +2,18 @@ from src.pathcorr import*
 from src.loggining import*
 import os
 def catti(cmd:str)->None:
-    print(cmd)
     try:
         puti=to_correct(cmd)
         if not(os.path.exists(puti)):
             erro=f'Данного пути не существует'
             print(f"{erro}")
-            logcom(f'cat{puti}',0,erro)
+            logcom(f'cat {puti}',0,erro)
             return
         if os.path.isdir(puti):
             erro=f'Является директорией'
             print(f"{erro}")
-            logcom(f'cat{puti}',0,erro)
+            logcom(f'cat {puti}',0,erro)
             return
-        print(puti)
         if os.path.isfile(puti):
             with open(puti,'r') as file:
                 for line in file:

@@ -6,7 +6,6 @@ def mvi(ist:str,kuda:str)->None:
     if 1:
         otk=to_correct(ist)
         fom=to_correct(kuda)
-        print(otk,fom)
         if not(os.path.exists(otk)):
                 erro=f'Данного пути не существует!!'
                 print(f"ERROR:{erro}")

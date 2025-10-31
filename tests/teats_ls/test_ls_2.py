@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import Mock, patch
+from unittest.mock import patch
 def test_ls_path():
     with patch('src.pathcorr.to_correct') as mto_correct,patch('os.listdir') as m_listdir,patch('os.path.exists') as m_exists,patch('builtins.print') as m_print, patch('src.loggining.logcom') as m_logcom:
         mto_correct.return_value = '/ll/path'
