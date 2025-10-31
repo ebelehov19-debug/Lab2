@@ -1,4 +1,4 @@
-from os import*
+import os
 import os.path
 from datetime import*
 from src.loggining import*
@@ -6,22 +6,28 @@ from src.pathcorr import*
 def ls(cmn:str,fl:str)->None:
     try:
         puti="C::::"
+        t=1
         if cmn: puti= to_correct(cmn)
-        else: puti=getcwd()
+        else: puti=os.getcwd()
         if os.path.exists(puti):
-            filanddir=listdir(puti)  
+            filanddir=os.listdir(puti)  
             if fl=='-l':
                 for i in filanddir:
-                    stats = stat(i)
+                    stats = os.stat(i)
                     size = stats.st_size 
                     raz = oct(stats.st_mode)[-3:] 
                     tim = stats.st_mtime
                     dat=datetime.fromtimestamp(tim).strftime('%Y-%m-%d %H:%M:%S')
                     print(f'{i} {size} {dat} {raz}')
-            else:
+            elif fl=="":
                 for i in filanddir:
                     print(i)
-            logcom(f'ls {fl} {puti}',True,'')
+            else:
+                print("Неправильный флаг")
+                logcom(f'ls {puti}',0,f'Неправильный флаг')
+                fl=0
+            if(fl):
+                logcom(f'ls {fl} {puti}',True,'')
         else:
             osh= f'Данный путь не существует {puti}'
             print(f'ERROR: {osh}')
