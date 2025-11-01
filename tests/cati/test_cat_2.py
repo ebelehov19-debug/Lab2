@@ -6,7 +6,7 @@ def test_cat_dir():
         mto_correct.return_value = '/ll/fie'
         m_d.return_value=1
         m_f.return_value=0
-        m_exists=1
+        m_exists.return_value=1
         from src.cat import catti
         catti('/ll/fie')
         mto_correct.assert_called_once_with('/ll/fie')
