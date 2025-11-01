@@ -3,18 +3,25 @@ import os
 from src.loggining import*
 import shutil
 def mvi(ist:str,kuda:str)->None:
-    if 1:
-        otk=to_correct(ist)
-        fom=to_correct(kuda)
-        if not(os.path.exists(otk)):
-                erro=f'Данного пути не существует!!'
-                print(f"ERROR:{erro}")
-                logcom(f'mv {otk} {kuda}',0,erro)
-                return
-        if os.path.isdir(fom):
-            shutil.move(otk,fom)
-        else:
-            pa=os.path.dirname(otk)
-            new=os.path.join(pa,kuda)
-            os.rename(otk,new)
-        logcom(f"mv {otk} {kuda}",1,'')
+    """
+    функция mvi выполняет функционал mv - перемещение или переименование 
+    происходит нормализация путей 
+    проверка на существание исходного пути 
+    далее проверка на директории если да то выполняется перемещение файла
+    если второй путь является файлом происходит переименовние файла в то что передали во втором аргументе
+    """
+
+    otk=to_correct(ist)
+    fom=to_correct(kuda)
+    if not(os.path.exists(otk)):              
+        erro=f'Данного пути не существует!!'
+        print(f"ERROR:{erro}")
+        logcom(f'mv {otk} {kuda}',0,erro)
+        return
+    if os.path.isdir(fom):
+        shutil.move(otk,fom)
+    else:
+        pa=os.path.dirname(otk)
+        new=os.path.join(pa,kuda)
+        os.rename(otk,new)
+    logcom(f"mv {otk} {kuda}",1,'')

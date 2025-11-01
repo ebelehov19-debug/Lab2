@@ -2,13 +2,23 @@ from src.pathcorr import*
 import os
 from src.loggining import*
 import shutil
-def rm(ist,fl=''):
+def rm(ist:str,fl='')->None:
+    """
+    rm - удаление файлов или директорий
+    сначала происходит проверка на удаление важных диреторий и выдается ошибка при надобности 
+    далее нормализация пути 
+    проверка существования пути если нет то ошибка
+    проверка если диретория и не тот флаг выдается ошибка
+    далее происходит действительно ли пользователь хочет удалить 
+    далее иде т проверка на директории и файлы и происходит удаление 
+
+    """
     try:
         if ist in ['/', '..', '.'] or ist == os.path.dirname(ist):
-                error = "Невщзмажно удалить директорию"
-                print(f"Error: {error}")
-                logcom(f"rm", 0, error)
-                return
+            error = "Невозмажно удалить директорию"
+            print(f"Error: {error}")
+            logcom(f"rm", 0, error)
+            return
         otk=to_correct(ist)
         if not(os.path.exists(otk)):
             erro=f'Данного пути не существует!!'

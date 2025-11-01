@@ -44,5 +44,7 @@
 
 ### Запустить
 ```py -m src.main``` 
+### Запустить тесты 
+```python -m  pytest  tests/path```
 ### Завершить
 ```exit``` 
