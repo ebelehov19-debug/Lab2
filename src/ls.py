@@ -33,9 +33,9 @@ def ls(cmn:str,fl:str)->None:
             else:
                 print("Неправильный флаг")
                 logcom(f'ls {puti}',0,f'Неправильный флаг')
-                fl=0
-            if(fl):
-                logcom(f'ls {fl} {puti}',True,'')
+                t=0
+            if(t):
+                logcom(f'ls {fl} {puti}',1,'')
         else:
             osh= f'Данный путь не существует {puti}'
             print(f'ERROR: {osh}')

@@ -10,14 +10,9 @@ def grep(pattern:str,path:str,fl='',fl2=''):
     далее удаляем все диретории 
     потом идем по файлам и смотрем совпадение с регулярным выражением и выводим файл номер строки и ее содиржимое 
     если ничего не нашлось выводится сообщение 
-
-
     """
     try:
-        if fl2=='-i':
-            flag = re.IGNORECASE 
-        else: flag=0
-        pater = re.compile(pattern,flag)
+        pater = re.compile(pattern)
         file_serch=[]
         if os.path.isfile(path):
             file_serch.append(path)
@@ -39,6 +34,8 @@ def grep(pattern:str,path:str,fl='',fl2=''):
                     i=0
                     for line in filp:
                         i+=1
+                        if(fl2=='-i'):
+                            line=line.lower()
                         if pater.search(line):
                             cnt+=1
                             print(f'{pat} {i} {line}')
